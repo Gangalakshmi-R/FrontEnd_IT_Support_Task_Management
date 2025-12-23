@@ -3,6 +3,7 @@ import TasksPage from "./pages/TasksPage";
 
 function App() {
   return (
+    
     <div style={{
       minHeight: "100vh",
       display: "flex",
@@ -11,7 +12,7 @@ function App() {
       backgroundColor: "white",
       color: "black"
     }}>
-
+    
       {/* HEADER */}
       <header style={{
         backgroundColor: "teal",
@@ -45,4 +46,6 @@ function App() {
   );
 }
 
+
 export default App;
+

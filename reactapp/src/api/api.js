@@ -1,14 +1,26 @@
 export const defaultTasks = [
   {
     id: 1,
-    name: "Task One",
-    description: "First task description",
+    name: "T1",
+    description: "Email issue",
     status: "pending"
   },
   {
     id: 2,
-    name: "Task Two",
-    description: "Second task description",
+    name: "T2",
+    description: "Project Presentation",
     status: "completed"
+  },
+  {
+    id: 3,
+    name: "T3",
+    description: "Network issue",
+    status: "pending"
+  },
+  {
+    id: 4,
+    name: "T4",
+    description: "Board meeting",
+    status: "in-progress"
   }
 ];

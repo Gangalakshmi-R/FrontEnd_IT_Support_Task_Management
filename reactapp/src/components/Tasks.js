@@ -16,7 +16,7 @@ function Tasks({ task, onStatusChange }) {
       </button>
       <button onClick={() => onStatusChange("completed")} style={{ marginLeft: "5px" }}>
         Completed
-      </button>
+      </button> 
     </div>
   );
 }
