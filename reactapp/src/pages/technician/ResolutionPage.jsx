@@ -35,13 +35,13 @@ const ResolutionPage = ({ tasks, setTasks }) => {
   };
 
   return (
-    <Box style={{ padding: 30, display: "flex", justifyContent: "center" }}>
-      <Paper style={{ padding: 32, width: 500 }}>
+    <Box style={{ padding: 27, display: "flex", justifyContent: "center" }}>
+      <Paper style={{ padding: 28, width: 500 }}>
         <Typography
-          variant="h5"
+          variant="h6"
           style={{
             backgroundColor: "teal",
-            padding: 10,
+            padding: 8,
             borderRadius: 10,
             textAlign: "center",
             fontWeight: "bold",
@@ -52,24 +52,25 @@ const ResolutionPage = ({ tasks, setTasks }) => {
         </Typography>
 
         <form onSubmit={handleSubmit}>
-         <TextField
-  label="Explain how you solved the issue..."
-  multiline
-  rows={5}
-  fullWidth
-  value={solution}
-  onChange={(e) => setSolution(e.target.value)}
-  variant="outlined"   
-  sx={{ mb: 3 }}         
-  required
-/>
+          <TextField
+            label="Explain how you solved the issue..."
+            multiline
+            rows={6}
+            fullWidth
+            value={solution}
+            onChange={(e) => setSolution(e.target.value)}
+            variant="outlined"
+            sx={{ mb: 3 }}
+            required
+          />
 
+          <br /><br />
           <Input type="file" onChange={handleFileChange} />
 
           <Typography variant="caption" display="block" style={{ margin: "12px 0" }}>
             Optional: Upload related files
           </Typography>
-
+          <br /><br />
           <Button
             type="submit"
             variant="contained"

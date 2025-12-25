@@ -62,107 +62,107 @@ const TechnicianDashboard = () => {
 
 
           <ListItem button selected={selectedSection === "history"} onClick={() => setSelectedSection("history")}>
-<HistoryIcon style={{ marginRight: 8 }} />
-<ListItemText primary="History" />
-</ListItem>
-</List>
-</Paper>
+            <HistoryIcon style={{ marginRight: 8 }} />
+            <ListItemText primary="History" />
+          </ListItem>
+        </List>
+      </Paper>
 
-{/* MAIN CONTENT */}
-<Box style={{ flex: 1, padding: 16, height: "100%", overflow: "hidden" }}>
-{/* TOOLBAR */}
-<Paper style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: 16, marginBottom: 16 }}>
-<Avatar style={{ backgroundColor: "teal", color: "black" }}>T</Avatar>
-<BuildIcon style={{ fontSize: 40 }} />
-<IconButton><InboxIcon /></IconButton>
-</Paper>
+      {/* MAIN CONTENT */}
+      <Box style={{ flex: 1, padding: 16, height: "100%", overflow: "hidden" }}>
+        {/* TOOLBAR */}
+        <Paper style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: 16, marginBottom: 16 }}>
+          <Avatar style={{ backgroundColor: "teal", color: "black" }}>T</Avatar>
+          <BuildIcon style={{ fontSize: 40 }} />
+          <IconButton><InboxIcon /></IconButton>
+        </Paper>
 
-{/* IN-PROGRESS */}
-{selectedSection === "inprogress" && (
-<Paper style={{ padding: 16 }}>
-<Typography variant="h6" style={{ marginBottom: 16 }}>In-Progress Issues</Typography>
-<Box style={{ maxHeight: 350, overflowY: "auto" }}>
-<Table stickyHeader>
-<TableHead>
-<TableRow>
-<TableCell><b>ID</b></TableCell>
-<TableCell><b>Name</b></TableCell>
-<TableCell><b>Issue</b></TableCell>
-<TableCell><b>Priority</b></TableCell>
-<TableCell><b>Status</b></TableCell>
-<TableCell><b>Action</b></TableCell>
-</TableRow>
-</TableHead>
+        {/* IN-PROGRESS */}
+        {selectedSection === "inprogress" && (
+          <Paper style={{ padding: 16 }}>
+            <Typography variant="h6" style={{ marginBottom: 16 }}>In-Progress Issues</Typography>
+            <Box style={{ maxHeight: 350, overflowY: "auto" }}>
+              <Table stickyHeader>
+                <TableHead>
+                  <TableRow>
+                    <TableCell><b>ID</b></TableCell>
+                    <TableCell><b>Name</b></TableCell>
+                    <TableCell><b>Issue</b></TableCell>
+                    <TableCell><b>Priority</b></TableCell>
+                    <TableCell><b>Status</b></TableCell>
+                    <TableCell><b>Action</b></TableCell>
+                  </TableRow>
+                </TableHead>
 
-<TableBody>
-{tasks.filter(t => t.resolutionForm === null).map(task => (
-<TableRow key={task.ticketId}>
-<TableCell>{task.ticketId}</TableCell>
-<TableCell>{task.name}</TableCell>
-<TableCell>{task.issue}</TableCell>
-<TableCell>{task.priority}</TableCell>
-<TableCell>
-<Select
-value={task.status}
-onChange={e => handleStatusChange(task.ticketId, e.target.value)}
->
-<MenuItem value="Pending">Pending</MenuItem>
-<MenuItem value="In Progress(25%)">In Progress(25%)</MenuItem>
-<MenuItem value="In Progress(50%)">In Progress(50%)</MenuItem>
-<MenuItem value="In Progress(75%)">In Progress(75%)</MenuItem>
-</Select>
-</TableCell>
-<TableCell>
-<Button
-variant="contained"
-style={{ backgroundColor: "teal", color: "black" }}
-onClick={() => navigate(`/resolve/${task.ticketId}`)}
->
-Resolve
-</Button>
-</TableCell>
-</TableRow>
-))}
-</TableBody>
-</Table>
-</Box>
-</Paper>
-)}
+                <TableBody>
+                  {tasks.filter(t => t.resolutionForm === null).map(task => (
+                    <TableRow key={task.ticketId}>
+                      <TableCell>{task.ticketId}</TableCell>
+                      <TableCell>{task.name}</TableCell>
+                      <TableCell>{task.issue}</TableCell>
+                      <TableCell>{task.priority}</TableCell>
+                      <TableCell>
+                        <Select
+                          value={task.status}
+                          onChange={e => handleStatusChange(task.ticketId, e.target.value)}
+                        >
+                          <MenuItem value="Pending">Pending</MenuItem>
+                          <MenuItem value="In Progress(25%)">In Progress(25%)</MenuItem>
+                          <MenuItem value="In Progress(50%)">In Progress(50%)</MenuItem>
+                          <MenuItem value="In Progress(75%)">In Progress(75%)</MenuItem>
+                        </Select>
+                      </TableCell>
+                      <TableCell>
+                        <Button
+                          variant="contained"
+                          style={{ backgroundColor: "teal", color: "black" }}
+                          onClick={() => navigate(`/resolve/${task.ticketId}`)}
+                        >
+                          Resolve
+                        </Button>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </Box>
+          </Paper>
+        )}
 
-{/* HISTORY */}
-{selectedSection === "history" && (
-<Paper style={{ padding: 16 }}>
-<Typography variant="h6" style={{ marginBottom: 16 }}>Completed Tasks</Typography>
-<Box style={{ maxHeight: 350, overflowY: "auto" }}>
-<Table stickyHeader>
-<TableHead>
-<TableRow>
-<TableCell><b>ID</b></TableCell>
-<TableCell><b>Name</b></TableCell>
-<TableCell><b>Issue</b></TableCell>
-<TableCell><b>Priority</b></TableCell>
-<TableCell><b>Resolution</b></TableCell>
-</TableRow>
-</TableHead>
+        {/* HISTORY */}
+        {selectedSection === "history" && (
+          <Paper style={{ padding: 16 }}>
+            <Typography variant="h6" style={{ marginBottom: 16 }}>Completed Tasks</Typography>
+            <Box style={{ maxHeight: 350, overflowY: "auto" }}>
+              <Table stickyHeader>
+                <TableHead>
+                  <TableRow>
+                    <TableCell><b>ID</b></TableCell>
+                    <TableCell><b>Name</b></TableCell>
+                    <TableCell><b>Issue</b></TableCell>
+                    <TableCell><b>Priority</b></TableCell>
+                    <TableCell><b>Resolution</b></TableCell>
+                  </TableRow>
+                </TableHead>
 
-<TableBody>
-{tasks.filter(t => t.resolutionForm !== null).map(task => (
-<TableRow key={task.ticketId}>
-<TableCell>{task.ticketId}</TableCell>
-<TableCell>{task.name}</TableCell>
-<TableCell>{task.issue}</TableCell>
-<TableCell>{task.priority}</TableCell>
-<TableCell>{task.resolutionForm}</TableCell>
-</TableRow>
-))}
-</TableBody>
-</Table>
-</Box>
-</Paper>
-)}
-</Box>
-</Box>
-);
+                <TableBody>
+                  {tasks.filter(t => t.resolutionForm !== null).map(task => (
+                    <TableRow key={task.ticketId}>
+                      <TableCell>{task.ticketId}</TableCell>
+                      <TableCell>{task.name}</TableCell>
+                      <TableCell>{task.issue}</TableCell>
+                      <TableCell>{task.priority}</TableCell>
+                      <TableCell>{task.resolutionForm}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </Box>
+          </Paper>
+        )}
+      </Box>
+    </Box>
+  );
 };
 
 export default TechnicianDashboard;
