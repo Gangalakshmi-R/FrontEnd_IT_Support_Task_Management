@@ -52,16 +52,17 @@ const ResolutionPage = ({ tasks, setTasks }) => {
         </Typography>
 
         <form onSubmit={handleSubmit}>
-          <TextField
-            label="Explain how you solved the issue..."
-            multiline
-            rows={5}
-            fullWidth
-            value={solution}
-            onChange={(e) => setSolution(e.target.value)}
-            style={{ marginBottom: 24 }}
-            required
-          />
+         <TextField
+  label="Explain how you solved the issue..."
+  multiline
+  rows={5}
+  fullWidth
+  value={solution}
+  onChange={(e) => setSolution(e.target.value)}
+  variant="outlined"   
+  sx={{ mb: 3 }}         
+  required
+/>
 
           <Input type="file" onChange={handleFileChange} />
 
