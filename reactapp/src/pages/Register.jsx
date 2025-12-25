@@ -20,7 +20,7 @@ const Register = () => {
   }
 
   const data = { name, email, empId, gender, password };
-  //console.log("Registered User:", data);
+  console.log("Registered User:", data);
   alert("Registration successful!");
   navigate(-1);
  };

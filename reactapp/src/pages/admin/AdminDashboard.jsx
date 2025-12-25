@@ -8,18 +8,12 @@ import {
   List,
   ListItem,
   ListItemText,
-  Divider,
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
-  Button
+  Divider
 } from "@material-ui/core";
 
 import InboxIcon from "@material-ui/icons/Inbox";
 import PeopleIcon from "@material-ui/icons/People";
-import EngineeringIcon from "@material-ui/icons/Engineering";
+import BuildIcon from "@material-ui/icons/Build";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import AdminPanelSettingsIcon from "@material-ui/icons/Security";
 
@@ -55,7 +49,7 @@ const AdminDashboard = () => {
           </ListItem>
 
           <ListItem button onClick={() => setSelectedSection("technicians")}>
-            <EngineeringIcon />
+            <BuildIcon />
             <ListItemText primary="Technicians" />
           </ListItem>
 
