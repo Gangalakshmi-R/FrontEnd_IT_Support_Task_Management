@@ -1,203 +1,168 @@
 import React, { useState } from "react";
 import {
- Box,
- Typography,
- Avatar,
- List,
- ListItem,
- ListItemText,
- Divider,
- Paper,
- TextField,
- Button,
- Rating,
- Snackbar,
- Alert,
- Table,
- TableBody,
- TableCell,
- TableContainer,
- TableHead,
- TableRow,
- Dialog,
- DialogTitle,
- DialogContent,
- DialogActions
-} from "@mui/material";
+  Box,
+  Typography,
+  Avatar,
+  List,
+  ListItem,
+  ListItemText,
+  Divider,
+  Paper,
+  TextField,
+  Button,
+  Snackbar,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions
+} from "@material-ui/core";
 
-import AssignmentIcon from "@mui/icons-material/Assignment";
-import HistoryIcon from "@mui/icons-material/History";
-import BugReportIcon from "@mui/icons-material/BugReport";
-import SendIcon from "@mui/icons-material/Send";
+import Rating from "@material-ui/lab/Rating";
+import MuiAlert from "@material-ui/lab/Alert";
+
+import AssignmentIcon from "@material-ui/icons/Assignment";
+import HistoryIcon from "@material-ui/icons/History";
+import BugReportIcon from "@material-ui/icons/BugReport";
+import SendIcon from "@material-ui/icons/Send";
+
+const Alert = (props) => <MuiAlert elevation={6} variant="filled" {...props} />;
 
 const EmployeeDashboard = () => {
- const [selectedSection, setSelectedSection] = useState("new");
- const [snackbarOpen, setSnackbarOpen] = useState(false);
- const [feedbackOpen, setFeedbackOpen] = useState(false);
- const [rating, setRating] = useState(0);
- const [feedback, setFeedback] = useState("");
+  const [selectedSection, setSelectedSection] = useState("new");
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [feedbackOpen, setFeedbackOpen] = useState(false);
+  const [rating, setRating] = useState(0);
+  const [feedback, setFeedback] = useState("");
 
- return (
-  <Box sx={{ display: "flex", height: "100vh", overflow: "hidden" }}>
-   {/* SIDEBAR */}
-   <Paper
-    square
-    sx={{
-     width: 240,
-     p: 1,
-     backgroundColor: "teal",
-     color: "black"
-    }}
-   >
-    <Box display="flex" alignItems="center" mb={1}>
-     <Avatar sx={{ mr: 1, bgcolor: "white", color: "black" }}>E</Avatar>
-     <Typography fontWeight="bold">Employee</Typography>
-    </Box>
+  return (
+    <Box style={{ display: "flex", height: "100vh" }}>
+      {/* SIDEBAR */}
+      <Paper style={{ width: 240, padding: 8, backgroundColor: "teal" }}>
+        <Box display="flex" alignItems="center">
+          <Avatar style={{ marginRight: 8 }}>E</Avatar>
+          <Typography style={{ fontWeight: "bold" }}>Employee</Typography>
+        </Box>
 
-    <Divider />
+        <Divider />
 
-    <List dense>
-     <ListItem button selected={selectedSection === "new"} onClick={() => setSelectedSection("new")}>
-      <BugReportIcon sx={{ mr: 1 }} />
-      <ListItemText primary="New Issue" />
-     </ListItem>
+        <List>
+          <ListItem button selected={selectedSection === "new"} onClick={() => setSelectedSection("new")}>
+            <BugReportIcon />
+            <ListItemText primary="New Issue" />
+          </ListItem>
 
-     <ListItem button selected={selectedSection === "progress"} onClick={() => setSelectedSection("progress")}>
-      <AssignmentIcon sx={{ mr: 1 }} />
-      <ListItemText primary="Progressing Issues" />
-     </ListItem>
+          <ListItem button selected={selectedSection === "progress"} onClick={() => setSelectedSection("progress")}>
+            <AssignmentIcon />
+            <ListItemText primary="Progressing Issues" />
+          </ListItem>
 
-     <ListItem button selected={selectedSection === "history"} onClick={() => setSelectedSection("history")}>
-      <HistoryIcon sx={{ mr: 1 }} />
-      <ListItemText primary="History" />
-     </ListItem>
-    </List>
-   </Paper>
+          <ListItem button selected={selectedSection === "history"} onClick={() => setSelectedSection("history")}>
+            <HistoryIcon />
+            <ListItemText primary="History" />
+          </ListItem>
+        </List>
+      </Paper>
 
-   {/* MAIN CONTENT */}
-   <Box
-    sx={{
-     flex: 1,
-     p: 1.5,
-     overflowY: "auto",
-     backgroundColor: "#f5f5f5"
-    }}
-   >
-    {/* NEW ISSUE */}
-    {selectedSection === "new" && (
-     <Paper sx={{ p: 5 }}>
-      <Typography fontWeight="bold" mb={1}>
-       Submit New Issue
-      </Typography>
-<br />
-      <TextField fullWidth size="medium" label="Employee Name" sx={{ mb: 3 }} />
-      <TextField fullWidth size="medium" label="Employee ID" sx={{ mb: 3 }} />
-      <TextField fullWidth size="medium" multiline rows={5} label="Issue Description" sx={{ mb: 1 }} />
-<br /><br />
-      <Button
-       size="small"
-       variant="contained"
-       sx={{ backgroundColor: "teal", color: "black" }}
-       endIcon={<SendIcon />}
-       onClick={() => setSnackbarOpen(true)}
-      >
-       Submit
-      </Button>
-<br /><br />
-      <Snackbar open={snackbarOpen} autoHideDuration={2000} onClose={() => setSnackbarOpen(false)}>
-       <Alert severity="success">Issue submitted successfully!</Alert>
-      </Snackbar>
-     </Paper>
-    )}
+{/* MAIN */}
+<Box style={{ flex: 1, padding: 16 }}>
+{selectedSection === "new" && (
+<Paper style={{ padding: 32 }}>
+<Typography style={{ fontWeight: "bold" }}>Submit New Issue</Typography>
 
-    {/* PROGRESSING ISSUES */}
-    {selectedSection === "progress" && (
-     <Paper sx={{ p: 2 }}>
-      <Typography fontWeight="bold" mb={1}>
-       Progressing Issues
-      </Typography>
+<TextField fullWidth label="Employee Name" style={{ margin: "16px 0" }} />
+<TextField fullWidth label="Employee ID" style={{ marginBottom: 16 }} />
+<TextField fullWidth multiline rows={5} label="Issue Description" />
 
-      <TableContainer>
-       <Table size="small">
-        <TableHead sx={{ backgroundColor: "#e0f2f1" }}>
-         <TableRow>
-          <TableCell>Ticket No</TableCell>
-          <TableCell>Issue</TableCell>
-          <TableCell>Submitted</TableCell>
-          <TableCell>Technician</TableCell>
-          <TableCell>Solved</TableCell>
-          <TableCell>Status</TableCell>
-          <TableCell>Feedback</TableCell>
-         </TableRow>
-        </TableHead>
+<Button
+variant="contained"
+style={{ backgroundColor: "teal", color: "black", marginTop: 16 }}
+endIcon={<SendIcon />}
+onClick={() => setSnackbarOpen(true)}
+>
+Submit
+</Button>
 
-        <TableBody>
-         <TableRow>
-          <TableCell>T-10234</TableCell>
-          <TableCell>System not booting</TableCell>
-          <TableCell>12/12/25</TableCell>
-          <TableCell>Arun</TableCell>
-          <TableCell>14/12/25</TableCell>
-          <TableCell>
-           <Typography color="green">Solved</Typography>
-          </TableCell>
-          <TableCell>
-           <Button
-            size="small"
-            variant="contained"
-            sx={{ backgroundColor: "teal", color: "black" }}
-            onClick={() => setFeedbackOpen(true)}
-           >
-            Feedback
-           </Button>
-          </TableCell>
-         </TableRow>
-        </TableBody>
-       </Table>
-      </TableContainer>
+<Snackbar open={snackbarOpen} autoHideDuration={2000} onClose={() => setSnackbarOpen(false)}>
+<Alert severity="success">Issue submitted successfully!</Alert>
+</Snackbar>
+</Paper>
+)}
 
-      {/* FEEDBACK DIALOG */}
-      <Dialog open={feedbackOpen} onClose={() => setFeedbackOpen(false)}>
-       <DialogTitle>Feedback</DialogTitle>
-       <DialogContent>
-        <Rating
-         value={rating}
-         onChange={(e, val) => setRating(val)}
-        />
-        <TextField
-         fullWidth
-         multiline
-         rows={3}
-         size="small"
-         label="Comments"
-         sx={{ mt: 1 }}
-         value={feedback}
-         onChange={(e) => setFeedback(e.target.value)}
-        />
-       </DialogContent>
-       <DialogActions>
-        <Button onClick={() => setFeedbackOpen(false)}>Cancel</Button>
-        <Button
-         variant="contained"
-         sx={{ backgroundColor: "teal", color: "black" }}
-         onClick={() => setFeedbackOpen(false)}
-        >
-         Submit
-        </Button>
-       </DialogActions>
-      </Dialog>
-     </Paper>
-    )}
+{selectedSection === "progress" && (
+<Paper style={{ padding: 16 }}>
+<Typography style={{ fontWeight: "bold" }}>Progressing Issues</Typography>
 
-    {/* HISTORY */}
-    {selectedSection === "history" && (
-     <Paper sx={{ p: 2 }}>
-      <Typography fontWeight="bold">History</Typography>
-     </Paper>
-    )}
-   </Box>
-  </Box>
- );
+<TableContainer>
+<Table size="small">
+<TableHead>
+<TableRow>
+<TableCell>Ticket No</TableCell>
+<TableCell>Issue</TableCell>
+<TableCell>Status</TableCell>
+<TableCell>Feedback</TableCell>
+</TableRow>
+</TableHead>
+
+<TableBody>
+<TableRow>
+<TableCell>T-10234</TableCell>
+<TableCell>System not booting</TableCell>
+<TableCell>Solved</TableCell>
+<TableCell>
+<Button
+variant="contained"
+style={{ backgroundColor: "teal", color: "black" }}
+onClick={() => setFeedbackOpen(true)}
+>
+Feedback
+</Button>
+</TableCell>
+</TableRow>
+</TableBody>
+</Table>
+</TableContainer>
+
+<Dialog open={feedbackOpen} onClose={() => setFeedbackOpen(false)}>
+<DialogTitle>Feedback</DialogTitle>
+<DialogContent>
+<Rating value={rating} onChange={(e, v) => setRating(v)} />
+<TextField
+fullWidth
+multiline
+rows={3}
+label="Comments"
+value={feedback}
+onChange={(e) => setFeedback(e.target.value)}
+/>
+</DialogContent>
+<DialogActions>
+<Button onClick={() => setFeedbackOpen(false)}>Cancel</Button>
+<Button
+variant="contained"
+style={{ backgroundColor: "teal", color: "black" }}
+onClick={() => setFeedbackOpen(false)}
+>
+Submit
+</Button>
+</DialogActions>
+</Dialog>
+</Paper>
+)}
+
+{selectedSection === "history" && (
+<Paper style={{ padding: 16 }}>
+<Typography style={{ fontWeight: "bold" }}>History</Typography>
+</Paper>
+)}
+</Box>
+</Box>
+);
 };
 
 export default EmployeeDashboard;
