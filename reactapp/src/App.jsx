@@ -1,50 +1,37 @@
 import React from "react";
-import TasksPage from "./pages/TasksPage";
+import { Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
 
-function App() {
-  return (
-    
-    <div style={{
-      minHeight: "100vh",
-      display: "flex",
-      flexDirection: "column",
-      fontFamily: "Arial",
-      backgroundColor: "white",
-      color: "black"
-    }}>
-    
-      {/* HEADER */}
-      <header style={{
-        backgroundColor: "teal",
-        padding: "20px",
-        color: "white",
-        textAlign: "center"
-      }}>
-        <h1>Task Management</h1>
-      </header>
+// Pages
+import Welcome from "./pages/Welcome";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
-      {/* BODY */}
-      <main style={{
-        flex: 1,
-        padding: "20px",
-        display: "block"
-      }}>
-        <TasksPage />
-      </main>
+// Dashboards
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import TechnicianDashboard from "./pages/technician/TechnicianDashboard";
+import EmployeeDashboard from "./pages/employee/EmployeeDashboard";
 
-      {/* FOOTER */}
-      <footer style={{
-        backgroundColor: "teal",
-        padding: "10px",
-        color: "white",
-        textAlign: "center"
-      }}>
-        IT Support Task Management System
-      </footer>
+// Technician Resolution Page
+import ResolutionPage from "./pages/technician/ResolutionPage";
 
-    </div>
-  );
-}
+const App = () => {
+ return (
+  <Routes>
+    <Route element={<Layout />}>
+    <Route path="/" element={<Welcome />} />
+    <Route path="/login/:role" element={<Login />} />
+    <Route path="/register" element={<Register />} />
 
+    <Route path="/admin" element={<AdminDashboard />} />
+    <Route path="/technician" element={<TechnicianDashboard />} />
+    <Route path="/employee" element={<EmployeeDashboard />} />
+
+    <Route path="/resolve/:id" element={<ResolutionPage />} />
+   </Route>
+  </Routes>
+ );
+};
 
 export default App;
+
