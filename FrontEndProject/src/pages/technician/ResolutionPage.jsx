@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import {
-  Box,
-  Paper,
-  Typography,
-  TextField,
-  Button,
-  Input
-} from "@material-ui/core";
+import { Box, Paper, Typography, TextField, Button, Input } from "@mui/material";
 
 const ResolutionPage = ({ tasks, setTasks }) => {
   const { id } = useParams();
@@ -22,8 +15,8 @@ const ResolutionPage = ({ tasks, setTasks }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setTasks(prev =>
-      prev.map(task =>
+    setTasks((prev) =>
+      prev.map((task) =>
         task.ticketId === id
           ? { ...task, resolutionForm: solution, status: "Completed", file }
           : task
@@ -35,17 +28,25 @@ const ResolutionPage = ({ tasks, setTasks }) => {
   };
 
   return (
-    <Box style={{ padding: 27, display: "flex", justifyContent: "center" }}>
-      <Paper style={{ padding: 28, width: 500 }}>
+    <Box sx={{ padding: "30px", display: "flex", justifyContent: "center" }}>
+      <Paper
+        sx={{
+          p: 4,
+          width: "500px",
+          backgroundColor: "white",
+          color: "black",
+          fontWeight: "bold"
+        }}
+      >
         <Typography
-          variant="h6"
-          style={{
+          variant="h5"
+          mb={3}
+          sx={{
             backgroundColor: "teal",
-            padding: 8,
-            borderRadius: 10,
+            padding: "10px",
+            borderRadius: "10px",
             textAlign: "center",
-            fontWeight: "bold",
-            marginBottom: 24
+            fontWeight: "bold"
           }}
         >
           Resolve Ticket #{id}
@@ -55,26 +56,28 @@ const ResolutionPage = ({ tasks, setTasks }) => {
           <TextField
             label="Explain how you solved the issue..."
             multiline
-            rows={6}
+            rows={5}
             fullWidth
             value={solution}
             onChange={(e) => setSolution(e.target.value)}
-            variant="outlined"
             sx={{ mb: 3 }}
             required
           />
 
-          <br /><br />
-          <Input type="file" onChange={handleFileChange} />
+          <Input type="file" onChange={handleFileChange} sx={{ mb: 2 }} />
 
-          <Typography variant="caption" display="block" style={{ margin: "12px 0" }}>
+          <Typography variant="caption" display="block" mb={2}>
             Optional: Upload related files
           </Typography>
-          <br /><br />
+
           <Button
             type="submit"
             variant="contained"
-            style={{ backgroundColor: "teal", color: "black", fontWeight: "bold" }}
+            sx={{
+              backgroundColor: "teal",
+              color: "black",
+              fontWeight: "bold"
+            }}
           >
             Submit Resolution
           </Button>

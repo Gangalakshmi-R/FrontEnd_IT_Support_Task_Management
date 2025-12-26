@@ -16,22 +16,21 @@ import EmployeeDashboard from "./pages/employee/EmployeeDashboard";
 import ResolutionPage from "./pages/technician/ResolutionPage";
 
 const App = () => {
- return (
-  <Routes>
-    <Route element={<Layout />}>
-    <Route path="/" element={<Welcome />} />
-    <Route path="/login/:role" element={<Login />} />
-    <Route path="/register" element={<Register />} />
+  return (
+    <Routes>
+       <Route element={<Layout />}>
+        <Route path="/" element={<Welcome />} />
+        <Route path="/login/:role" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
-    <Route path="/admin" element={<AdminDashboard />} />
-    <Route path="/technician" element={<TechnicianDashboard />} />
-    <Route path="/employee" element={<EmployeeDashboard />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/technician" element={<TechnicianDashboard />} />
+        <Route path="/employee" element={<EmployeeDashboard />} />
 
-    <Route path="/resolve/:id" element={<ResolutionPage />} />
-   </Route>
-  </Routes>
- );
+        <Route path="/resolve/:id" element={<ResolutionPage />} />
+      </Route>
+    </Routes>
+  );
 };
 
 export default App;
-
