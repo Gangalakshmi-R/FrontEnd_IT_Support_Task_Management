@@ -10,7 +10,7 @@ import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
  
 // Dashboards
-import AdminDashboard from "./pages/admin/AdminDashboard.jsx"; 
+import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
 import TechnicianDashboard from "./pages/technician/TechnicianDashboard.jsx";
 import EmployeeDashboard from "./pages/employee/EmployeeDashboard.jsx";
 
