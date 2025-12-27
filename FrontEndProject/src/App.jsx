@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar.jsx";
 import Welcome from "./pages/Welcome";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-
+ 
 // Dashboards
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import TechnicianDashboard from "./pages/technician/TechnicianDashboard";
