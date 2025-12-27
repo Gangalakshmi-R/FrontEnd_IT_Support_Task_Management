@@ -23,7 +23,7 @@ const ResolutionPage = ({ tasks, setTasks }) => {
       )
     );
 
-    alert("Resolution submitted! Task moved to History.");
+    alert("Resolution submitted! Task moved to History."); 
     navigate("/technician");
   };
 
