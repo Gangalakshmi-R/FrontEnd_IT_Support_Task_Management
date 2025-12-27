@@ -18,7 +18,7 @@ const Welcome = () => {
           in a structured manner.
         </p>
 
-        <p style={descriptionStyle}>
+        <p style={descriptionStyle}>   
           This system improves communication, reduces response time, and ensures
           smooth IT operations across the organization.
         </p>
