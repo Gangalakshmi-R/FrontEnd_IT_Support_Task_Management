@@ -1,21 +1,21 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout";
+import Layout from "./components/Layout.jsx";
 import Navbar from "./components/Navbar.jsx";
 
 
 // Pages
-import Welcome from "./pages/Welcome";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Welcome from "./pages/Welcome.jsx";
+import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
  
 // Dashboards
-import AdminDashboard from "./pages/admin/AdminDashboard";
-import TechnicianDashboard from "./pages/technician/TechnicianDashboard";
-import EmployeeDashboard from "./pages/employee/EmployeeDashboard";
+import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
+import TechnicianDashboard from "./pages/technician/TechnicianDashboard.jsx";
+import EmployeeDashboard from "./pages/employee/EmployeeDashboard.jsx";
 
 // Technician Resolution Page
-import ResolutionPage from "./pages/technician/ResolutionPage";
+import ResolutionPage from "./pages/technician/ResolutionPage.jsx";
 const App = () => {
   return (
     <>
