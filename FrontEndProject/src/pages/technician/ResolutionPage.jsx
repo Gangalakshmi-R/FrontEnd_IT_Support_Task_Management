@@ -31,7 +31,7 @@ const ResolutionPage = ({ tasks, setTasks }) => {
     <Box sx={{ padding: "30px", display: "flex", justifyContent: "center" }}>
       <Paper
         sx={{
-          p: 4,
+          p: 4, 
           width: "500px",
           backgroundColor: "white",
           color: "black",
