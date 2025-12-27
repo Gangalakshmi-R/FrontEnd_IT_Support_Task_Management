@@ -31,11 +31,11 @@ jobs:
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
           -Dsonar.projectKey=iamneo-production-4_3c59354e-96c0-47a7-a3a4-6b089fe44b7f-a7c8b264-7fc9-412f-8a64-cb8730ebbd35
           -Dsonar.login=sqa_bca47d55147cb1b256a213a17c135dfe863be411
-      - name: Trigger API
-        if: always()
-        env:
-          API_URL: '${{ secrets.API_URL }}'
-          API_SECRET: '${{ secrets.API_SECRET }}'
+      # - name: Trigger API
+      #   if: always()
+      #   env:
+      #     API_URL: '${{ secrets.API_URL }}'
+      #     API_SECRET: '${{ secrets.API_SECRET }}'
         run: >
           REPO_NAME=$(echo "${GITHUB_REPOSITORY}" | cut -d '/' -f 2)
 
