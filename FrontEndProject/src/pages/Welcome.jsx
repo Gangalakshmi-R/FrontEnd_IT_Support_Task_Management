@@ -1,65 +1,81 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const Welcome = () => {
   return (
-      
+    <div>
+      <div style={containerStyle}>
 
-    <div
-      style={{
-        minHeight: "80vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center"
-      }}
-    >
-      <h1
-        style={{
-          width: "300px",
-          padding: "10px",
-          fontSize: "22px",
-          borderRadius: "50px",
-          textAlign: "center",
-          borderStyle: "solid",
-          borderBlockColor: "black",
-          backgroundColor: "teal",
-          color: "black",
-          fontWeight: "bold"
-        }}
-      >
-        IT Support HelpDesk
-      </h1>
-      <br /><br />
+        <h1 style={titleStyle}>IT Support HelpDesk Portal</h1>
+        <br />
+        <p style={descriptionStyle}>
+          The IT Support HelpDesk System is a web-based application designed to
+          manage and resolve technical issues within an organization efficiently.
+        </p>
 
-      <Link to="/login/admin">
-        <button style={btnStyle}>Admin</button>
-      </Link>
-      <br /><br />
+        <p style={descriptionStyle}>
+          Employees can raise support tickets for their IT-related problems, while
+          administrators and technicians can track, assign, and resolve issues
+          in a structured manner.
+        </p>
 
-      <Link to="/login/technician">
-        <button style={btnStyle}>Technician</button>
-      </Link>
-      <br /><br />
+        <p style={descriptionStyle}>
+          This system improves communication, reduces response time, and ensures
+          smooth IT operations across the organization.
+        </p>
+      </div>
 
-      <Link to="/login/employee">
-        <button style={btnStyle}>Employee</button>
-      </Link>
+      <div>
+        <p style={NoteStyle}>
+         Contact:
+         Gangalakshmi Raja,
+         6381934970
+         </p>
+      </div>
+
     </div>
+
   );
 };
 
-const btnStyle = {
-  width: "200px",
-  padding: "12px",
-  fontSize: "16px",
-  cursor: "pointer",
-  borderRadius: "20px",
-  backgroundColor: "teal",
-  borderStyle: "solid",
-  borderBlockColor: "black",
-  color: "black",
-  fontWeight: "600"
+/* ---------- Styles ---------- */
+
+const containerStyle = {
+  backgroundColor: "white",
+  borderRadius: "2cap",
+  marginTop: "50px", // space below navbar
+  padding: "20px",
+  textAlign: "center",
+  maxWidth: "600px",
+  marginLeft: "auto",
+  marginRight: "auto",
 };
+const NoteStyle = {
+  backgroundColor: "teal",
+  borderRadius: "2cap",
+  border:"2px solid black",
+  marginTop: "38px", // space below navbar
+  padding: "10px",
+  textAlign: "center",
+  maxWidth: "300px",
+  marginLeft: "auto",
+  marginRight: "auto",
+};
+const titleStyle = {
+  backgroundColor: "teal",
+  color: "black",
+  padding: "10px",
+  borderRadius: "30px",
+  fontSize: "24px",
+  fontWeight: "bold",
+  border: "2px solid black",
+};
+
+const descriptionStyle = {
+  color: "teal",
+  marginTop: "20px",
+  fontSize: "16px",
+  lineHeight: "1.6",
+};
+
 
 export default Welcome;

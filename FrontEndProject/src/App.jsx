@@ -1,6 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
+import Navbar from "./components/Navbar.jsx";
+
 
 // Pages
 import Welcome from "./pages/Welcome";
@@ -14,23 +16,26 @@ import EmployeeDashboard from "./pages/employee/EmployeeDashboard";
 
 // Technician Resolution Page
 import ResolutionPage from "./pages/technician/ResolutionPage";
-
 const App = () => {
   return (
-    <Routes>
-       <Route element={<Layout />}>
-        <Route path="/" element={<Welcome />} />
-        <Route path="/login/:role" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+    <>
+      <Navbar />
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<Welcome />} />
+          <Route path="/login/:role" element={<Login />} />
+          <Route path="/register" element={<Register />} />
 
-        <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="/technician" element={<TechnicianDashboard />} />
-        <Route path="/employee" element={<EmployeeDashboard />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/technician" element={<TechnicianDashboard />} />
+          <Route path="/employee" element={<EmployeeDashboard />} />
 
-        <Route path="/resolve/:id" element={<ResolutionPage />} />
-      </Route>
-    </Routes>
+          <Route path="/resolve/:id" element={<ResolutionPage />} />
+        </Route>
+      </Routes>
+    </>
   );
 };
+
 
 export default App;

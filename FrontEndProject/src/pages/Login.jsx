@@ -34,7 +34,7 @@ const Login = () => {
       <div
         style={{
           textAlign: "center",
-          marginTop: "60px",
+          marginTop: "00px",
           paddingBottom: "80px"
         }}
       >
