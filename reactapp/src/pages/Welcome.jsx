@@ -20,7 +20,7 @@ const Welcome = () => {
           initial="rest"
           whileHover="hover"
           whileTap="hover"
-          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }} 
         >
           <p style={cardTextStyle}>
             The IT Support HelpDesk System is a web-based application designed to
