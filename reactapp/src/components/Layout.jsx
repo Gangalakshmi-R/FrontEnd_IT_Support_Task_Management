@@ -1,6 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import building from "../assets/building.jpg";
+import Navbar from "./Navbar";
 
 const Layout = () => {
   return (
@@ -9,6 +10,7 @@ const Layout = () => {
          position: "fixed",
           top: 0,
           left: 0,
+           overflow: "hidden",  
           width: "100%",
           height: "100%",
         minHeight: "100vh",
@@ -16,24 +18,14 @@ const Layout = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         opacity:1,
-         zIndex: -1     
+         zIndex: 1     
        
       }}
     >
       {/* Header */}
       <div
-        style={{
-          backgroundColor: "teal",
-          color: "black",
-          fontWeight:"600",
-          padding: "15px",
-          textAlign: "center",
-          fontSize: "22px",
-          zIndex: 1
-
-        }}
       >
-        IT Support System
+        <Navbar/>
       </div>
 
       {/* Page Content */}
